@@ -1,0 +1,5 @@
+#Transform this code base into a general tool on github that can download pdfs in the specified repo data given a list of DOIs, 
+#Put the tool on github
+#Combine both the scrapping of pdf links with the downloading of the PDFS seperately.
+#Use the temp files and rename to the proper pdf.
+#Try to make the code and code structure as clean as possible.
