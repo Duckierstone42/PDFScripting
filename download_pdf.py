@@ -2,7 +2,7 @@ import pandas as pd
 import concurrent.futures
 import os
 import re
-data=  pd.read_csv("./pdf_links/CIF_AND_DOI_DISTINCT_with_links62000.csv")
+data=  pd.read_csv("./pdf_links/CIF_AND_DOI_DISTINCT_with_links.csv")
 print("Total entries in data:",len(data))
 counter = 0
 max_workers = 10
@@ -31,8 +31,9 @@ data_path = os.path.join(os.getcwd(), "language_struct_project_data")
 if not os.path.exists(data_path):
     os.makedirs(data_path)
 initial_total = len(os.listdir(data_path))
+print("Initial Total",initial_total)
 try:
-    for index, row in data.iterrows():
+    for index, row in data[80792:].iterrows():
         counter+=1 #It' actually counting even if it wasn't filled yet. 
         if (current_pool_size == max_workers):
             pool.shutdown(wait=True)

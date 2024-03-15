@@ -54,7 +54,7 @@ count = 0
 total = 0
 total_in_file=0
 try:
-    for index, row in pairs_frame.iloc[45309:].iterrows():
+    for index, row in pairs_frame.iloc[1:].iterrows():
         if (pd.isna(row["pdf_link"])):
             print(index)
             total+=1

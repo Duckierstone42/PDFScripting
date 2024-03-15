@@ -29,21 +29,21 @@ def download_pdf(lnk,driver,CIF,temp,data_path):
         os.unlink(os.path.join(temp,file))
     driver.get(lnk)
     driver.get(CIF)
-    time.sleep(4)
+    time.sleep(5)
     files_downloaded = os.listdir(temp)
     new_path = os.path.join(os.getcwd(),data_path,re.search(r'\d+',CIF).group())
     #Delete all files originally in new_path.
+    #The way its currently setup I may need to do some cleaning at the end to fix it all up.
     if (len(files_downloaded) == 2):
         #Move contents to the other proper directory it should be in.
         #Move CIFS to one path and pdf to another path.
         #First ensure all files download withour crdownload.
         #In the end it will not wait for crdownloads, will first try to download everything cleanly.
-        if "crdownload" not in "".join(files_downloaded):
             #Will only make it if it has the data and it exists.
-            if not os.path.exists(new_path):
-                os.mkdir(new_path)
-            for file in files_downloaded:
-                os.rename(os.path.join(temp,file),os.path.join(new_path,file))
+        if not os.path.exists(new_path):
+            os.mkdir(new_path)
+        for file in files_downloaded:
+            os.rename(os.path.join(temp,file),os.path.join(new_path,file))
             #Delete either CIF, or lnk, whichever actually downloaded.
     for file in os.listdir(temp):
         os.unlink(os.path.join(temp,file))
